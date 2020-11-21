@@ -1,4 +1,4 @@
-const {autoUpdater} = require("electron-updater");
+const { autoUpdater } = require("electron-updater");
 const electron = require('electron');
 const { ipcMain, dialog, app, BrowserWindow } = require('electron')
 const puppeteer = require('puppeteer');
@@ -7,7 +7,7 @@ const csv = require('csv-parser');
 
 
 app.on("ready", () => {
-	autoUpdater.checkForUpdatesAndNotify();
+    autoUpdater.checkForUpdatesAndNotify();
 });
 
 
@@ -16,7 +16,7 @@ var page;
 var win;
 
 let launchOptions = {
-    headless: true,
+    headless: false,
     args: ['--start-maximized']
 };
 
@@ -196,7 +196,16 @@ ipcMain.on('get-csv', async function (event) {
                         console.log(" " + arr[row]['Message']);
 
                         await page.waitForSelector('footer');
-                        await page.type('footer>div.copyable-area>div[tabindex="-1"]>div>div.copyable-text', arr[row]['Message'].trim());
+
+                        var msgArr = arr[row]['Message'].trim().split("\n");
+                        for (var i = 0; i < msgArr.length; i++) {
+                            if (i != 0) {
+                                await page.keyboard.down('Control');
+                                await page.keyboard.press('Enter');
+                                await page.keyboard.up('Control');
+                            }
+                            await page.type('footer>div.copyable-area>div[tabindex="-1"]>div>div.copyable-text', msgArr[i]);
+                        }
                         await page.click('footer>div.copyable-area>div:last-child>button');
                         console.log("Sent!\n");
                         event.sender.send('sent', Number(row) + 2);
