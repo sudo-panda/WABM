@@ -1,0 +1,50 @@
+{
+  "name": "wabm",
+  "version": "1.0.0",
+  "description": "An app to send Whatsapp messages in bulk using your web login.",
+  "main": "main.js",
+  "build": {
+    "appId": "com.sudopanda.wabm",
+    "productName": "WABM",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "whatsapp",
+    "bulk-messaging",
+    "bot"
+  ],
+  "author": "Baidyanath Kundu",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parser": "^2.3.3",
+    "electron-updater": "^4.3.5",
+    "puppeteer": "^5.5.0"
+  },
+  "devDependencies": {
+    "electron": "^11.0.2",
+    "electron-builder": "^22.9.1"
+  },
+  "config": {}
+}

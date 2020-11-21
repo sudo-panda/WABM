@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <title>WABM</title>
+    <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+    <div class="card center">
+        <form>
+            <div class="label">
+                Number
+            </div>
+            <span class="textbox">
+                <input type="tel" id="phone" placeholder="911234567890" pattern="[0-9]{12}"/>
+            </span>
+            <div class="label">
+                Message
+            </div>
+            <div>
+                <textarea id="msg" cols="26" rows="6"></textarea>
+            </div>
+            <button id="singleMsg">Send Message</button>
+            <h3>OR</h3>
+            <button id="bulkMsg">Upload CSV</button>
+            <div class="label" id="sent"></div>
+        </form>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>
