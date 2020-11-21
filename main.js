@@ -16,7 +16,7 @@ var page;
 var win;
 
 let launchOptions = {
-    headless: false,
+    headless: true,
     args: ['--start-maximized']
 };
 
