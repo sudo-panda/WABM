@@ -36,3 +36,7 @@ Message"
 ## Future Plans
 
 Try to look for a way to send messages without using puppeteer. 
+
+## Acknowledgements
+
+Thanks to [@ritwik25](https://github.com/ritwik25) for giving the idea to use it in [@Project Manas](https://github.com/Project-MANAS) recruitments
