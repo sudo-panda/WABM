@@ -1,6 +1,8 @@
 name: CI/CD
 
 on: push
+  paths-ignore:
+    - "**.md"
 
 jobs:
   release:
